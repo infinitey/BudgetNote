@@ -14,9 +14,16 @@ const middleware = () => {
   return applyMiddleware(createLogger(), thunk)
 }
 
+//createStore
 export default createStore(
   combineReducers({
-    home: (state, action) => NavigatorHome.router.getStateForAction(action, state),
+    home: (state, action) =>
+    {
+      const newState = NavigatorHome.router.getStateForAction(action, state);
+
+      // return state if newState is null or undefined.
+      return newState || state;
+    },
     homeReducer,
   }),
   middleware(),

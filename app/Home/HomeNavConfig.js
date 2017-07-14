@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation'
 
 // Screens
 import Home from  './containers/Home'
+import Content from './containers/Content'
 
 
 const routeConfiguration = {
@@ -13,7 +14,13 @@ const routeConfiguration = {
       headerMode: 'screen',
     }),
   },
-
+  Content: {screen: Content,
+    navigationOptions: ({ navigation, screenProps }) => ({
+      title: 'Result',
+      headerMode: 'screen',
+    }),
+  },
+  //Add more screens here...
 }
 
 

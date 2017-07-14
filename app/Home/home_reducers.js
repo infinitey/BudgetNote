@@ -1,3 +1,4 @@
+//import type constants from home_actions
 import {
   GET_TEST_PENDING,
   GET_TEST_SUCCESS,
@@ -8,11 +9,13 @@ import getTestPending from './reducers/get_test_pending'
 import getTestSuccess from './reducers/get_test_success'
 import getTestFailure from './reducers/get_test_failure'
 
+// set initial state of your reducer if you have any
 const homeInitialState = {
   isGettingTest: false,
-  test: '',
 }
 
+//after actions has fired, reducer will put action through a switch case to see
+//if there is a matching task to make changes to the store
 export const homeReducer = (state = homeInitialState, action) => {
   switch (action.type) {
     case GET_TEST_PENDING:

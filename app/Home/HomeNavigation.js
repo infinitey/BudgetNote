@@ -10,16 +10,12 @@ import { NavigatorHome } from './HomeNavConfig'
 // Redux
 import { connect } from 'react-redux'
 
-
-const mapStateToProps = (state) => {
- return {
-  navigationState: state.home
-  }
-}
-
 class HomeNavigation extends React.Component {
 
   render(){
+    //grabs navigationState (its own state) and dispatch from store
+    //addNavigationHelpers creates its own actions and reducers with the state and dispatch
+    //doing so, all the components handled by NavigatorHome will have access to navigation
     const { navigationState, dispatch } = this.props
     return (
       <NavigatorHome
@@ -34,4 +30,12 @@ class HomeNavigation extends React.Component {
     )
   }
 }
+
+//so that navigator is able to access its own state through props
+const mapStateToProps = (state) => {
+ return {
+  navigationState: state.home
+  }
+}
+
 export default connect(mapStateToProps)(HomeNavigation)
