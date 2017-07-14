@@ -19,8 +19,8 @@ export default createStore(
   combineReducers({
     home: (state, action) =>
     {
+      //get new state for the navigation actions
       const newState = NavigatorHome.router.getStateForAction(action, state);
-
       // return state if newState is null or undefined.
       return newState || state;
     },

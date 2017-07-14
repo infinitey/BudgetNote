@@ -31,7 +31,7 @@ class HomeNavigation extends React.Component {
   }
 }
 
-//so that navigator is able to access its own state through props
+//so that navigator is able to access its own state through props 
 const mapStateToProps = (state) => {
  return {
   navigationState: state.home
